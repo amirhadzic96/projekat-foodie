@@ -1,0 +1,21 @@
+#main {
+  background-color: #f5f8fa !important;
+  min-height: 61vh !important;
+}
+
+.trash {
+  cursor: pointer;
+}
+
+.hamburger {
+  font-size: 46px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+}
+

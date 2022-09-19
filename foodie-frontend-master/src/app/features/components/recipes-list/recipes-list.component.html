@@ -1,0 +1,36 @@
+<div class="container" [ngStyle]="router.url == '/recipes' && {'background-color': '#ebf4fa'}">
+  <div class="search-area" *ngIf="router.url == '/recipes'">
+    <form class="form-inline my-2 my-lg-0">
+      <input type="search" (ngModelChange)="searchRecipes(key.value)" #key="ngModel" ngModel
+             name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search by name or type of meal">
+    </form>
+  </div>
+  <div class="main">
+    <div *ngFor="let model of models" class="display-recipes">
+      <div class="card card-blog">
+        <div class="card-image" [routerLink]="['/recipes', model.id]">
+          <img class="img" src="{{model.thumbnailImageUrl}}" alt="ERROR: Could not fetch recipe thumbnail !"
+               style="width: 340px; height: 250px;">
+          <div class="ripple-cont"></div>
+        </div>
+        <div class="table">
+          <div class="main">
+            <p class="category text-success"><i class="fa fa-university"></i>{{ typeOfMeal[model.typeOfMeal] }}</p>
+            <p class="stats"><i class="fa fa-clock-o"></i> {{ model.preparationTime }} minutes </p>
+          </div>
+          <h4 class="card-caption">
+            <a *ngIf="!isLoggedIn" (click)="onClick()" style="cursor: pointer; color: #fa6a48;">{{ model.title }}</a>
+            <a [routerLink]="['/recipes', model.id]" *ngIf="isLoggedIn">{{ model.title }}</a>
+          </h4>
+          <p class="card-description card-text">{{ model.preparation }}</p>
+          <div class="fadeout"></div>
+          <div class="ftr">
+            <div *ngFor="let nutritionIssue of model.nutritionIssues">
+              <span class="badge badge-info">{{ nutritionIssue?.name }} </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<!-- Button trigger modal -->
+<fa-icon [icon]="faEdit" data-toggle="modal" data-target="#profile-edit"></fa-icon>
+
+<!-- Modal -->
+<div class="modal fade" id="profile-edit" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Profile</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <label for="firstName">First name</label>
+                <input [(ngModel)]="userModel.firstName" [value]="userModel.firstName" name="firstName" type="text"
+                       class="form-control" id="firstName" placeholder="Enter first name">
+              </div>
+              <div class="col">
+                <label for="lastName">Last name</label>
+                <input [(ngModel)]="userModel.lastName" [value]="userModel.lastName" name="lastName" type="text"
+                       class="form-control" id="lastName" placeholder="Enter last name">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="height">Height</label>
+            <input [(ngModel)]="userModel.height" [value]="userModel.height" name="height" type="number"
+                   class="form-control" id="height" placeholder="Enter height">
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight</label>
+            <input [(ngModel)]="userModel.weight" [value]="userModel.weight" name="weight" type="number"
+                   class="form-control" id="weight" placeholder="Enter weight">
+          </div>
+          <div class="form-group">
+            <label for="profileImageUrl">Photo URL</label>
+            <input [(ngModel)]="userModel.profileImageUrl" name="profileImageUrl" type="text" class="form-control"
+                   id="profileImageUrl" placeholder="Enter profile photo URL">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="closeModal">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

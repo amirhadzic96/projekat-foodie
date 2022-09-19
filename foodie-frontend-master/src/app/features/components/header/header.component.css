@@ -1,0 +1,66 @@
+#header {
+  border-radius: 0;
+  background: #fff;
+  padding: 10px;
+  font-size: 17px;
+  max-width: 100%;
+  margin: 10px auto;
+}
+
+.container-fluid {
+  max-width: 70%;
+}
+
+/* logo or main heading */
+#logo {
+  font-size: 20px;
+  font-weight: bolder;
+  color: #00004d;
+  letter-spacing: 2px;
+}
+
+/* navigation links*/
+#link a {
+  color: #01325d;
+  margin: 0 20px 0 10px;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+}
+
+/* navigation link with right border */
+#first-link {
+  padding-right: 6px;
+  border-right: solid 1px #ccc;
+}
+
+/* sign up link button and toggle button */
+.button-link, #toogle-button {
+  color: #f2f2f2;
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 2px;
+  background-color: #fa6a48;
+}
+
+.button-link {
+  color: #f2f2f2;
+  padding: 0 10px 0;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.button-link:hover {
+  background-color: white;
+  color: #fa6a48;
+  border-color: #fa6a48;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.active-link {
+  padding-bottom: 10px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, rgba(250, 106, 72, 1) 0%);
+}

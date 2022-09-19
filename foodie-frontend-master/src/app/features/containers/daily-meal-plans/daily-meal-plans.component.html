@@ -1,0 +1,136 @@
+<section class="section gray-bg" id="blog">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7 text-center">
+        <div class="section-title">
+          <h2 class="text-dark">Daily Meal Plan</h2>
+          <p class="text-dark">We have customized your recipes for today. Try them out and let us know!</p>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex;">
+      <div class="col-lg-4">
+        <div class="blog-grid">
+          <div class="blog-img">
+            <div class="date">{{ latestPlan.date | date:'mediumDate'}}</div>
+            <a href="#">
+              <img src="{{latestPlan.breakfast.thumbnailImageUrl}}" title="" alt="" style="width: 350px; height: 280px;">
+            </a>
+          </div>
+          <div class="blog-info">
+            <h5><a [routerLink]="['/recipes', latestPlan.breakfast.id]">{{ latestPlan.breakfast.title }}</a></h5>
+            <p>Taste, speed, and health, are the most important factors when it comes to <span class="highlight">breakfast.</span>
+            </p>
+            <p>This breakfast has it all!</p>
+            <div class="btn-bar">
+              <a [routerLink]="['/recipes', latestPlan.breakfast.id]" class="px-btn-arrow">
+                <span>Let's cook</span>
+                <i class="arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="blog-grid">
+          <div class="blog-img">
+            <div class="date">{{ latestPlan.date | date:'mediumDate'}}</div>
+            <a href="#">
+              <img src="{{latestPlan.lunch.thumbnailImageUrl}}" title="" alt="" style="width: 350px; height: 280px;">
+            </a>
+          </div>
+          <div class="blog-info">
+            <h5><a [routerLink]="['/recipes', latestPlan.lunch.id]">{{ latestPlan.lunch.title }}</a></h5>
+            <p>Here is a <span class="highlight">lunch</span> idea to keep your midday eating on the right track with a
+              little bit of novelty.</p>
+            <p>Give it a go today.</p>
+            <div class="btn-bar">
+              <a [routerLink]="['/recipes', latestPlan.lunch.id]" class="px-btn-arrow">
+                <span>Let's cook</span>
+                <i class="arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="blog-grid">
+          <div class="blog-img">
+            <div class="date">{{ latestPlan.date | date:'mediumDate'}}</div>
+            <a href="#">
+              <img src="{{latestPlan.dinner.thumbnailImageUrl}}" title="" alt="" style="width: 350px; height: 280px;">
+            </a>
+          </div>
+          <div class="blog-info">
+            <h5><a [routerLink]="['/recipes', latestPlan.dinner.id]">{{ latestPlan.dinner.title }}</a></h5>
+            <p><span class="highlight">Dinner</span>, being the grand solid meal of the day, is a matter of considerable
+              importance.</p>
+            <p>Perfect meal for you to end the day.</p>
+            <div class="btn-bar">
+              <a [routerLink]="['/recipes', latestPlan.dinner.id]" class="px-btn-arrow">
+                <span>Let's cook</span>
+                <i class="arrow"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="create-plan">
+    <p class="lg-3 text-dark">... or generate a new meal plan for today!</p>
+    <button (click)="createNewPlan()" class="new-button">Create New Plan</button>
+  </div>
+</section>
+
+<div class="container">
+  <div class="table-responsive">
+    <table class="table table-bordered text-center">
+      <thead>
+      <tr class="bg-light-gray">
+        <th class="text-uppercase">#</th>
+        <th class="text-uppercase">Date</th>
+        <th class="text-uppercase">Breakfast</th>
+        <th class="text-uppercase">Lunch</th>
+        <th class="text-uppercase">Dinner</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let plan of plans; let i = index">
+        <td class="align-middle">{{ i + 1 }}</td>
+        <td>
+          <div class="margin-10px-top font-size14">{{ plan.date }}</div>
+        </td>
+        <td>
+                      <span [ngClass]="{'low':plan.breakfast.calorieStatus===0,
+                                        'medium':plan.breakfast.calorieStatus===1,
+                                        'high':plan.breakfast.calorieStatus===2}"
+                      >{{ calorieStatus[plan.breakfast.calorieStatus] }} Calorie</span>
+          <div class="margin-10px-top font-size14">{{ plan.breakfast.title }}</div>
+          <div class="font-size13 text-light-gray"><a [routerLink]="['/recipes', plan.breakfast.id]"
+                                                      class="view-recipe">View Recipe</a></div>
+        </td>
+        <td>
+                      <span [ngClass]="{'low':plan.breakfast.calorieStatus===0,
+                                        'medium':plan.breakfast.calorieStatus===1,
+                                        'high':plan.breakfast.calorieStatus===2}"
+                      >{{ calorieStatus[plan.lunch.calorieStatus] }} Calorie</span>
+          <div class="margin-10px-top font-size14">{{ plan.lunch.title }}</div>
+          <div class="font-size13 text-light-gray"><a [routerLink]="['/recipes', plan.lunch.id]" class="view-recipe">View
+            Recipe</a></div>
+        </td>
+
+        <td>
+                      <span [ngClass]="{'low':plan.breakfast.calorieStatus===0,
+                                        'medium':plan.breakfast.calorieStatus===1,
+                                        'high':plan.breakfast.calorieStatus===2}"
+                      >{{ calorieStatus[plan.dinner.calorieStatus] }} Calorie</span>
+          <div class="margin-10px-top font-size14">{{ plan.dinner.title }}</div>
+          <div class="font-size13 text-light-gray"><a [routerLink]="['/recipes', plan.dinner.id]" class="view-recipe">View
+            Recipe</a></div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,203 @@
+.search-area {
+  max-width: 100%;
+  height: 100px;
+  background-color: #ebf4fa;
+}
+
+.search-area .form-inline input {
+  text-align: center;
+  width: 400px;
+}
+
+input:focus {
+  box-shadow: 0.5px 0.5px 3px 1px #fa6a48 !important;
+  border: none;
+}
+
+.search-area .form-inline {
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.card {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.87);
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.card .card-image {
+  cursor: pointer;
+  height: 60%;
+  position: relative;
+  overflow: hidden;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-top: -30px;
+  border-radius: 6px;
+  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.card .card-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.card .ftr {
+  margin-top: 10px;
+  text-align: center;
+  height: 50px;
+}
+
+.card .ftr div {
+  display: inline-block;
+}
+
+.card .ftr .stats {
+  float: right;
+  line-height: 30px;
+}
+
+/* ============ Card Table ============ */
+
+.table {
+  margin-bottom: 0px;
+  padding: 10px 20px;
+}
+
+/* ============ Card Blog ============ */
+
+.card-blog {
+  margin-top: 20px;
+}
+
+.card-blog .card-caption {
+  margin-top: 5px;
+}
+
+/* ============ Card Background ============ */
+
+.card-background {
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+.card-background .table {
+  z-index: 2;
+  min-height: 280px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.card-background .category,
+.card-background .card-description,
+.card-background small {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.card-caption {
+  margin-top: 7px;
+  text-align: center !important;
+}
+
+/* ============ Card Category ============ */
+
+.category {
+  position: relative;
+  line-height: 0;
+}
+
+/* ============ Text Color ============ */
+
+.text-success {
+  color: #4caf50;
+}
+
+/* ======= GENERAL  ======= */
+
+a {
+  color: #fa6a48;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4caf50;
+}
+
+p {
+  color: #3C4857;
+}
+
+h4, .h4 {
+  font-size: 1.3em;
+  line-height: 1.55em;
+}
+
+h6, .h6 {
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 90%;
+  margin: 20px auto;
+}
+
+.table .main {
+  align-items: center;
+  margin: 10px auto;
+}
+
+.display-recipes {
+  width: 32%;
+  margin-right: 13px;
+}
+
+.fadeout {
+  height: 150px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 55px;
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 90%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(95%, rgba(255, 255, 255, 1)));
+  background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 90%);
+  background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 90%);
+  background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 90%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 90%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+}
+
+.card-text {
+  height: 150px;
+  overflow: hidden;
+  text-align: justify;
+}
+
+.card-caption a {
+  font-size: 25px;
+  text-align: center;
+}
+
+.table .main {
+  justify-content: space-between;
+}
+
+.badge {
+  padding: 5px 8px;
+  font-weight: 400;
+  margin-right: 5px;
+}

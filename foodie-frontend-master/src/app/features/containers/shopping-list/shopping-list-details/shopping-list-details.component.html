@@ -1,0 +1,20 @@
+<app-shopping-list>
+  <div class="card-body">
+    <h5 class="card-title">{{ shoppingList.title }}</h5>
+    <div class="card-text" *ngFor="let ingredient of shoppingList.ingredients">
+      <div class="row">
+        <div class="col">
+          <p class="mb-0">Ingredient Name: {{ ingredient.ingredientName }}</p>
+          <p class="mb-0">Calories: {{ ingredient.caloricValue }}</p>
+          <p class="mb-0">Nutritional value: {{ ingredient.nutritionalValue }}</p>
+        </div>
+        <div class="col d-flex flex-row justify-content-end">
+          <a (click)="onDelete(shoppingList.id, ingredient)">
+            <fa-icon class="text-danger" [icon]="faTrashAlt"></fa-icon>
+          </a>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</app-shopping-list>

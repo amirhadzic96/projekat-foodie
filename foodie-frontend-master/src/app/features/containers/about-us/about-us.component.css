@@ -1,0 +1,41 @@
+body {
+  margin-top: 20px;
+  background: #FF7F50 !important;
+}
+
+.text-custom {
+  color: #0062ff !important;
+}
+
+.container {
+  margin: 0 auto 150px;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+}
+
+.aboutustext {
+  font-size: 40px;
+  color: #FF7F50;
+  margin-top: 60px;
+}
+
+.title {
+  font-size: 30px;
+}
+
+.text-paragraph {
+  line-height: 28px;
+  color: #51585e;
+  text-align: justify;
+}
+
+.imena {
+  font-size: 19px;
+  text-align: center;
+  margin-top: 7px;
+}

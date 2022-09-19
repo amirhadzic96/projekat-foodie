@@ -1,0 +1,11 @@
+<app-admin>
+  <p class="h3 pt-3 pb-3">Add Nutrition Issue</p>
+  <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input [(ngModel)]="nutritionIssueModel.name" name="name" type="text" class="form-control" id="name"
+             placeholder="Enter the nutrition issue name">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</app-admin>

@@ -1,0 +1,45 @@
+<!-- Button trigger modal -->
+<!--<fa-icon [icon]="faEdit" data-toggle="modal" data-target="#add-to-shopping-list"></fa-icon>-->
+
+<button type="button" class="btn btn-info" data-toggle="modal" data-target="#add-to-shopping-list">
+  Add to shopping list +
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="add-to-shopping-list" tabindex="-1" role="dialog"
+     aria-labelledby="add-to-shoppingListModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="add-to-shoppingListModalLabel">Add ingredients to shopping list</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="shoppingLists">Shopping List</label>
+            <select [(ngModel)]="shoppingListNumber" class="form-control" id="shoppingLists" name="shoppingLists">
+              <option *ngFor="let shoppingList of shoppingListsModel; let i=index;"
+                      [ngValue]="shoppingList.id">{{ shoppingList.title }}</option>
+            </select>
+          </div>
+          <div *ngIf="shoppingListNumber" class="form-group">
+            <label for="ingredients">Ingredients</label>
+            <select [(ngModel)]="ingredientsModel" multiple class="form-control" id="ingredients" name="ingredients">
+              <option *ngFor="let ingredient of ingredientList"
+                      [ngValue]="ingredient.ingredient">{{ ingredient.ingredient.ingredientName }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="closeShoppingListModal" *ngIf="shoppingListNumber">Add
+          </button>
+          <button class="btn btn-primary" *ngIf="!shoppingListNumber" disabled>Add</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

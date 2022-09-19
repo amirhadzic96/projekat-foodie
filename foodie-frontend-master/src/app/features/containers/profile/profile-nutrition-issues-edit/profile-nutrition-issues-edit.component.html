@@ -1,0 +1,33 @@
+<!-- Button trigger modal -->
+<fa-icon [icon]="faEdit" data-toggle="modal" data-target="#profile-nutrition-issues-edit"></fa-icon>
+
+<!-- Modal -->
+<div class="modal fade" id="profile-nutrition-issues-edit" tabindex="-1" role="dialog"
+     aria-labelledby="nutrition-issues-editModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="nutrition-issues-editModalLabel">Edit Nutrition Issues</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="nutritionIssues">Nutrition Issues</label>
+            <select [(ngModel)]="userModel.nutritionIssues" multiple class="form-control" id="nutritionIssues"
+                    name="nutritionIssues">
+              <option *ngFor="let nutritionIssue of nutritionIssues"
+                      [ngValue]="nutritionIssue">{{ nutritionIssue.name }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="closeModalNutritionIssues">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

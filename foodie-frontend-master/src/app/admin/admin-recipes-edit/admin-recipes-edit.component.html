@@ -1,0 +1,149 @@
+<app-admin>
+  <p class="h3 pt-3 pb-3">Edit Recipe</p>
+  <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input [(ngModel)]="recipeModel.title" value="{{recipeModel.title}}" name="title" type="text"
+                 class="form-control" id="title" placeholder="Enter recipe title">
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="typeOfMeal">Type of meal</label>
+              <select class="form-control" id="typeOfMeal" [(ngModel)]="recipeModel.typeOfMeal" name="typeOfMeal">
+                <option [ngValue]="typeOfMeal.Breakfast">Breakfast</option>
+                <option [ngValue]="typeOfMeal.Lunch">Lunch</option>
+                <option [ngValue]="typeOfMeal.Dinner">Dinner</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="preparationTime">Preparation Time</label>
+              <input [(ngModel)]="recipeModel.preparationTime" value="{{recipeModel.preparationTime}}"
+                     name="preparationTime" type="number" class="form-control" id="preparationTime"
+                     placeholder="Enter preparation time">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="numOfCalories">Number of Calories</label>
+              <input [(ngModel)]="recipeModel.numOfCalories" value="{{recipeModel.numOfCalories}}" name="numOfCalories"
+                     type="number" class="form-control" id="numOfCalories" placeholder="Enter number of calories">
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="calorieStatus">Calorie Status</label>
+              <select class="form-control" id="calorieStatus" [(ngModel)]="recipeModel.calorieStatus"
+                      name="calorieStatus">
+                <option [ngValue]="calorieStatus.Low">Low</option>
+                <option [ngValue]="calorieStatus.Medium">Medium</option>
+                <option [ngValue]="calorieStatus.High">High</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for="nutritionIssues">Nutrition Issues</label>
+              <select multiple class="form-control" id="nutritionIssues" [(ngModel)]="recipeModel.nutritionIssues"
+                      name="nutritionIssues">
+                <option *ngFor="let nutritionIssue of nutritionIssues"
+                        [ngValue]="nutritionIssue">{{ nutritionIssue.name }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <label for="mainImageUrl">Image URL</label>
+              <input [(ngModel)]="recipeModel.mainImageUrl" value="{{recipeModel.mainImageUrl}}" name="mainImageUrl"
+                     type="text" class="form-control" id="mainImageUrl" placeholder="Enter image url">
+            </div>
+            <div class="form-group">
+              <label for="thumbnailImageUrl">Thumbnail URL</label>
+              <input [(ngModel)]="recipeModel.thumbnailImageUrl" value="{{recipeModel.thumbnailImageUrl}}"
+                     name="thumbnailImageUrl" type="text" class="form-control" id="thumbnailImageUrl"
+                     placeholder="Enter image thumbnail url">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group h-100">
+          <label for="preparation">Preparation</label>
+          <textarea [(ngModel)]="recipeModel.preparation" value="{{recipeModel.preparation}}" name="preparation"
+                    class="form-control" id="preparation" placeholder="Enter recipe preparation"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <p class="h4 pt-3 pb-3">Ingredients</p>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="ingredients">Ingredient</label>
+          <select class="form-control" id="ingredients" [(ngModel)]="ingredientList.ingredient" name="ingredientList">
+            <option *ngFor="let ingredient of ingredients"
+                    [ngValue]="ingredient">{{ ingredient.ingredientName }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="amount">Amount</label>
+          <input [(ngModel)]="ingredientList.amount" name="amount" type="number" class="form-control" id="amount"
+                 placeholder="Enter number of calories">
+        </div>
+      </div>
+      <div class="col mb-3">
+        <div class="form-group">
+          <label for="amountLabel">Label</label>
+          <input [(ngModel)]="ingredientList.amountLabel" name="amountLabel" type="text" class="form-control"
+                 id="amountLabel" placeholder="Enter label">
+        </div>
+      </div>
+      <div class="col d-flex align-items-end mb-3">
+        <a class="btn btn-success mb-3" (click)="addIngredient()">Add</a>
+        <a class="btn btn-danger ml-3 mb-3" *ngIf="ingredientLists.length" (click)="ingredientLists.pop()">Undo</a>
+      </div>
+      <div class="col d-flex align-items-end mb-3">
+        <button type="submit" class="btn btn-primary mb-3">Submit</button>
+      </div>
+    </div>
+
+    <div class="mb-5" *ngIf="ingredientLists.length">
+      <p class="h6 pt-3 pb-3">Added Ingredients</p>
+      <div>
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ingredient Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Label</th>
+            <th scope="col">Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let ingredientList of ingredientLists; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>{{ ingredientList.ingredient.ingredientName }}</td>
+            <td>{{ ingredientList.amount }}</td>
+            <td>{{ ingredientList.amountLabel }}</td>
+            <td>
+              <fa-icon style="cursor: pointer" class="text-danger" [icon]="faTrashAlt"
+                       (click)="removeIngredientList(ingredientList)"></fa-icon>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </form>
+</app-admin>

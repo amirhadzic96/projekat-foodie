@@ -1,0 +1,11 @@
+<app-admin>
+  <p class="h3 pt-3 pb-3">Edit Nutrition Issue</p>
+  <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input [(ngModel)]="nutritionIssueModel.name" [value]="nutritionIssueModel.name" name="name" type="text"
+             class="form-control" id="name" placeholder="Enter the nutrition issue name">
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+  </form>
+</app-admin>

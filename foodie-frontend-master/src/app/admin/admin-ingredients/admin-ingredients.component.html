@@ -1,0 +1,28 @@
+<app-admin>
+  <p class="h3 pt-3 pb-3">Ingredients</p>
+  <table datatable class="row-border hover">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Caloric Value</th>
+      <th>Nutritional Value</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let ingredient of ingredients">
+      <td>{{ ingredient.id }}</td>
+      <td>{{ ingredient.ingredientName }}</td>
+      <td>{{ ingredient.caloricValue }}</td>
+      <td>{{ ingredient.nutritionalValue }}</td>
+      <td class="p-3">
+        <fa-icon [icon]="faEdit" (click)="openEditIngredient(ingredient.id)"></fa-icon>
+        <fa-icon class="text-danger ml-3" [icon]="faTrashAlt" (click)="deleteIngredient(ingredient)"></fa-icon>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-primary mt-3" (click)="openAddIngredients()">Add</button>
+</app-admin>

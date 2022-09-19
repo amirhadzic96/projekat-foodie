@@ -1,0 +1,20 @@
+<div class="d-flex" id="wrapper">
+  <div class="border-end bg-white border-top" id="sidebar-wrapper">
+    <!-- Sidebar navigation -->
+    <div class="sidebar-heading border-bottom bg-light">Foodie Admin Panel</div>
+    <div class="list-group list-group-flush">
+      <a class="list-group-item list-group-item-action list-group-item-light p-3"
+         (click)="openRecipesList()">Recipes</a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" (click)="openNutritionIssuesList()">Nutrition
+        issues</a>
+      <a class="list-group-item list-group-item-action list-group-item-light p-3" (click)="openIngredientsList()">Ingredients</a>
+    </div>
+  </div>
+  <!-- Page content wrapper-->
+  <div id="page-content-wrapper">
+    <!-- Page content-->
+    <div class="container-fluid border-top">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

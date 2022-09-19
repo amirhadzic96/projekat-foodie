@@ -1,0 +1,100 @@
+.container {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.jumbotron {
+  background-image: url("../../../../assets/images/background.jpg");
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
+  text-align: center;
+  box-shadow: 0 -7px 9px -7px #a39f9e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 100%;
+  height: 30rem;
+
+  position: relative;
+
+}
+
+.color-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.4;
+
+  position: absolute;
+}
+
+.lead, .display-4 {
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  z-index: 1;
+}
+
+.jumbotron .display-4 {
+  padding-top: 180px;
+  font-size: 50px !important;
+}
+
+.start-btn {
+  border-radius: 2px;
+  background-color: #fa6a48;
+  color: #f2f2f2;
+  padding: 5px 35px !important;
+  outline: none;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 15px 50px;
+  z-index: 1;
+  border: 1px solid rgba(0, 0, 0, .2);
+  transition: all 0.5s;
+  cursor: pointer;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, .7);
+}
+
+.start-btn:hover {
+  background-color: white;
+  color: #fa6a48;
+}
+
+.view-all {
+  text-align: center;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+
+.meal-part {
+  background-image: url("../../../../assets/images/meals.jpg");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
+  text-align: center;
+  box-shadow: 0 -7px 9px -7px #a39f9e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 100%;
+  height: 30rem;
+
+  position: relative;
+
+}
+
+.meal-part .lead {
+  margin-top: 80px;
+  color: black;
+  font-size: 25px;
+}

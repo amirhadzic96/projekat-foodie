@@ -1,0 +1,60 @@
+<div class="container pt-5">
+  <div *ngIf="isFavorite" class="alert alert-success alert-dismissible fade show" role="alert">
+    {{ isFavoriteMessage }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <ng-container *ngIf="model">
+    <div class="pb-3 d-flex justify-content-between align-items-center">
+      <div class="ftr">
+        <h1>{{ model.title }}</h1>
+        <p class="greyscale-3">{{ typeOfMeal[model.typeOfMeal] }}</p>
+        <div class="d-flex flex-row">
+          <div class="mr-1" *ngFor="let nutritionIssue of nutritionIssues">
+            <span class="badge badge-info"> {{nutritionIssue.name}} </span>
+          </div>
+        </div>
+        <div class="under-title">
+          <div>
+            <span>{{ ingredientModel.length }}</span><br>
+            <span>Ingredients</span>
+          </div>
+          <div>
+            <span>{{ model.preparationTime }}</span><br>
+            <span>Minutes</span>
+          </div>
+          <div>
+            <span>{{ model.numOfCalories }}</span><br>
+            <span>Calories</span>
+          </div>
+        </div>
+        <div class="btns">
+          <a (click)="onClick()" class="btn btn-info">Read directions</a>
+          <button *ngIf="!isFavorite" type="button" class="btn btn-outline-info ml-1" (click)="addToFavorite()">Add to
+            Favorite +
+          </button>
+          <button *ngIf="isFavorite" type="button" class="btn btn-outline-info ml-1" (click)="removeFromFavorite()">
+            Remove from Favorite -
+          </button>
+        </div>
+      </div>
+      <img class="shadow rounded" src="{{ model.mainImageUrl }}" alt="ERROR: Image could not be fetched!"
+           style="width: 650px; height: 350px;">
+    </div>
+    <hr>
+
+    <div class="row mb-3">
+      <div class="col-6 border-right">
+        <app-ingredient-lists [ingredientLists]="ingredientModel"
+                              [shoppingListsModel]="shoppingListsModel"></app-ingredient-lists>
+      </div>
+      <div class="col-6">
+        <div class="">
+          <h2 class="pt-3 text-center mb-3">Preparation</h2>
+          <p style="word-wrap: break-word;" id="directions">{{ model.preparation }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

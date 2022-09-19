@@ -1,0 +1,4 @@
+textarea {
+  height: calc(100% - 3rem) !important;
+  resize: none !important;
+}

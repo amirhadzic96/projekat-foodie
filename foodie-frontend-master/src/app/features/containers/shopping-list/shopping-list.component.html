@@ -1,0 +1,32 @@
+<div id="main" class="min-vh-100">
+  <div class="container p-4">
+    <div class="card">
+      <div class="row">
+        <div class="col border-right">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h5 class="card-title m-0">Shopping Lists</h5>
+              <app-shopping-list-create></app-shopping-list-create>
+            </div>
+            <p *ngIf="!shoppingLists.length">You have no shopping lists yet.</p>
+            <div class="card-text" *ngFor="let shoppingList of shoppingLists">
+              <div class="d-flex justify-content-between">
+                <a [routerLink]="['/shopping-lists', shoppingList.id]">{{ shoppingList.title }}</a>
+                <a (click)="onDelete(shoppingList.id)">
+                  <fa-icon class="text-danger trash" [icon]="faTrashAlt"></fa-icon>
+                </a>
+              </div>
+              <hr>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <ng-content></ng-content>
+          <div *ngIf="!hasClicked" class="d-flex h-100 justify-content-center align-items-center hamburger">
+            <fa-icon [icon]="faHamburger"></fa-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

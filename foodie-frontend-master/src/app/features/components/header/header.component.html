@@ -1,0 +1,50 @@
+<nav id="header" class="navbar sticky-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" id="toogle-button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="glyphicon glyphicon-menu-hamburger"></span>
+      </button>
+      <a id="logo" class="navbar-brand" [routerLink]="['/']">Foodie</a>
+    </div>
+
+    <div>
+      <a class="ml-5 text-dark" [routerLink]="['/']" routerLinkActive="active-link"
+         [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a class="ml-5 text-dark" [routerLink]="['/recipes']" routerLinkActive="active-link"
+         [routerLinkActiveOptions]="{exact: true}">Recipes</a>
+      <a class="ml-5 text-dark" [routerLink]="['/about-us']" routerLinkActive="active-link"
+         [routerLinkActiveOptions]="{exact: true}">About</a>
+    </div>
+
+    <div *ngIf="!isLoggedIn">
+      <a class="ml-3 text-dark" [routerLink]="['/login']">Sign In</a>
+      <button class="ml-3 button-link" [routerLink]="['/signup']">Sign Up</button>
+    </div>
+
+    <div *ngIf="isLoggedIn && !adminUser" class="nav-item dropdown d-flex flex-row">
+      <a class="dropdown-toggle mr-5 text-dark" id="navbardrop" data-toggle="dropdown">
+        Profile
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" [routerLink]="['/profile', userId]">My Profile</a>
+        <a class="dropdown-item" [routerLink]="['/shopping-lists']">Shopping Lists</a>
+        <a class="dropdown-item" [routerLink]="['/check-user', userId]">Meal Plans</a>
+      </div>
+      <a (click)="logout()">
+        <fa-icon [icon]="faSignOutAlt"></fa-icon>
+        Sign out</a>
+    </div>
+    <div *ngIf="adminUser" class="nav-item dropdown d-flex flex-row">
+      <a class="dropdown-toggle mr-5 text-dark" id="navbardrop" data-toggle="dropdown">
+        Admin
+      </a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" [routerLink]="['/admin']">Admin Panel</a>
+        <a class="dropdown-item" [routerLink]="['/profile', userId]">Admin Info</a>
+      </div>
+      <a (click)="logout()">
+        <fa-icon [icon]="faSignOutAlt"></fa-icon>
+        Sign out</a>
+    </div>
+  </div>
+</nav>

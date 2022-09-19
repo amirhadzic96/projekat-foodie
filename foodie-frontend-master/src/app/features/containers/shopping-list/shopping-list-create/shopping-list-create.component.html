@@ -1,0 +1,33 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn-sm btn-info" data-toggle="modal" data-target="#createShoppingList">
+  Create New
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="createShoppingList" tabindex="-1" role="dialog" aria-labelledby="createShoppingListLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="createShoppingListLabel">Create Shopping List</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="title">Shopping List Name</label>
+            <input [(ngModel)]="shoppingList.title" [value]="shoppingList.title" name="title" type="text"
+                   class="form-control" id="title" placeholder="Enter shopping list name" required>
+            <p class="text-danger" *ngFor="let error of errors">{{ error }}</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary" id="closeModal">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

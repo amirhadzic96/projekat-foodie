@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row bootstrap snippets bootdeys">
+    <div class="col-md-8 col-sm-12">
+      <div class="comment-wrapper">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h4>Comment panel</h4>
+          </div>
+          <div class="panel-body">
+            <form #form="ngForm" (ngSubmit)="addComment()" novalidate>
+              <textarea [(ngModel)]="commentModel.comment" [value]="commentModel.comment" name="comment" id="comment"
+                        class="form-control" placeholder="leave a comment..." rows="3"></textarea>
+              <br>
+              <p class="text-danger" *ngFor="let error of errors">{{ error }}</p>
+              <button type="submit" class="btn btn-info pull-right">Post</button>
+            </form>
+            <div class="clearfix"></div>
+            <hr>
+            <ul class="media-list" *ngFor="let c of comments">
+              <li class="media">
+                <a href="#" class="pull-left">
+                  <img *ngIf="!c.user.profileImageUrl" src="../../../../assets/images/default_user_image.png"
+                       alt="Default User Image" class="img-circle">
+                  <img *ngIf="c.user.profileImageUrl" src="{{ c.user.profileImageUrl }}" alt="ERROR: Invalid link !"
+                       class="img-circle">
+                </a>
+                <div class="media-body">
+                                  <span class="text-muted pull-right">
+                                      <small class="text-muted">{{ c.datetime | timeago:live }}</small>
+                                  </span>
+                  <strong class="text-success ml-3">@{{ c.user.firstName}}{{ c.user.lastName }}</strong>
+                  <p>{{ c.comment }}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<app-recipe-details
+  [model]="recipe"
+  [ingredientModel]="ingredientsList"
+  [nutritionIssues]="nutritionIssues"
+  [shoppingListsModel]="shoppingListsModel"
+  [isFavoriteMessage]="isFavoriteMessage"
+  [isFavorite]="isFavorite"
+  (onAdd)="onAdd()"
+  (onRemove)="onRemove($event)"
+></app-recipe-details>
+<app-comments
+  [recipe]="recipe"
+></app-comments>
